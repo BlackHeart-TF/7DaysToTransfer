@@ -1,0 +1,14 @@
+﻿<Properties StartupConfiguration="{9628CA0E-0C71-49CD-BB90-82BE9004AD98}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="7DllsToDie/SaveManager.cs">
+    <Files>
+      <File FileName="7DllsToDie/SaveManager.cs" Line="85" Column="64" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.7DaysToTransfer PreferredExecutionTarget="MonoDevelop.Default" />
+</Properties>

@@ -1,0 +1,14 @@
+/Volumes/C/Users/Noire/Documents/Visual Studio 2015/Projects/7DaysToTransfer/7DaysToTransfer/7DaysOfService/bin/Release/7DaysOfService.exe.config
+/Volumes/C/Users/Noire/Documents/Visual Studio 2015/Projects/7DaysToTransfer/7DaysToTransfer/7DaysOfService/bin/Release/7DaysOfService.exe
+/Volumes/C/Users/Noire/Documents/Visual Studio 2015/Projects/7DaysToTransfer/7DaysToTransfer/7DaysOfService/bin/Release/7DaysOfService.pdb
+/Volumes/C/Users/Noire/Documents/Visual Studio 2015/Projects/7DaysToTransfer/7DaysToTransfer/7DaysOfService/obj/Release/7DaysOfService.csprojResolveAssemblyReference.cache
+/Volumes/C/Users/Noire/Documents/Visual Studio 2015/Projects/7DaysToTransfer/7DaysToTransfer/7DaysOfService/obj/Release/7DaysOfService.csproj.CoreCompileInputs.cache
+/Volumes/C/Users/Noire/Documents/Visual Studio 2015/Projects/7DaysToTransfer/7DaysToTransfer/7DaysOfService/obj/Release/7DaysOfService.exe
+/Volumes/C/Users/Noire/Documents/Visual Studio 2015/Projects/7DaysToTransfer/7DaysToTransfer/7DaysOfService/obj/Release/7DaysOfService.pdb
+/Volumes/C/Users/Noire/Documents/Visual Studio 2015/Projects/7DaysToTransfer/7DaysOfService/bin/Release/7DaysOfService.exe.config
+/Volumes/C/Users/Noire/Documents/Visual Studio 2015/Projects/7DaysToTransfer/7DaysOfService/bin/Release/7DaysOfService.exe
+/Volumes/C/Users/Noire/Documents/Visual Studio 2015/Projects/7DaysToTransfer/7DaysOfService/bin/Release/7DaysOfService.pdb
+/Volumes/C/Users/Noire/Documents/Visual Studio 2015/Projects/7DaysToTransfer/7DaysOfService/obj/Release/7DaysOfService.csprojResolveAssemblyReference.cache
+/Volumes/C/Users/Noire/Documents/Visual Studio 2015/Projects/7DaysToTransfer/7DaysOfService/obj/Release/7DaysOfService.csproj.CoreCompileInputs.cache
+/Volumes/C/Users/Noire/Documents/Visual Studio 2015/Projects/7DaysToTransfer/7DaysOfService/obj/Release/7DaysOfService.exe
+/Volumes/C/Users/Noire/Documents/Visual Studio 2015/Projects/7DaysToTransfer/7DaysOfService/obj/Release/7DaysOfService.pdb

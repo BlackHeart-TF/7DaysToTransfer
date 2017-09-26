@@ -1,0 +1,18 @@
+﻿<Properties StartupConfiguration="{9628CA0E-0C71-49CD-BB90-82BE9004AD98}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="../7DllsToDie/SaveManager.cs">
+    <Files>
+      <File FileName="Form1.cs" Line="37" Column="77" />
+      <File FileName="7DaysOfService/Program.cs" Line="12" Column="6" />
+      <File FileName="../7DllsToDie/SaveManager.cs" Line="85" Column="64" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Volumes/C/Users/Noire/Documents/Visual Studio 2015/Projects/7DaysToTransfer/7DaysToTransfer/SaveManager.cs" relfile="SaveManager.cs" line="57" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.7DaysToTransfer PreferredExecutionTarget="MonoDevelop.Default" />
+</Properties>
