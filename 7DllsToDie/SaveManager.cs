@@ -113,7 +113,7 @@ namespace _7DllsToDie
         {
             Path = path;
             ID = System.IO.Path.GetFileNameWithoutExtension(Path);
-            UserName = GetCharacterProfile(); //GetUserName();
+            UserName = GetUserName();
             CharacterName = GetCharacterProfile();
         }
 
