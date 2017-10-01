@@ -17,22 +17,23 @@ namespace _7DaysToTransfer
         {
             InitializeComponent();
         }
-        public GameSaveItem FromSave;
-        public GameSaveItem ToSave;
+        public WorldSaveItem FromSave;
+        public WorldSaveItem ToSave;
         public string fromPath;
         public string toPath;
         private void Id_Select_Load(object sender, EventArgs e)
         {
             FromLabel.Text = FromSave.World + "/" + FromSave.GameName;
             ToLabel.Text = ToSave.World + "/" + ToSave.GameName;
-            FromlistBox.DataSource = FromSave.PlayerIDs;
-            TolistBox.DataSource = ToSave.PlayerIDs;
+
+            FromlistBox.DataSource = FromSave.GetUserNames();
+            TolistBox.DataSource = ToSave.GetUserNames();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            fromPath =FromSave.GetPath(FromlistBox.SelectedIndex);
-            toPath = ToSave.GetPath(TolistBox.SelectedIndex);
+            fromPath =FromSave.Players[FromlistBox.SelectedIndex].Path;
+            toPath = ToSave.Players[TolistBox.SelectedIndex].Path;
             this.DialogResult = DialogResult.OK;
         }
     }

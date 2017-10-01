@@ -13,7 +13,7 @@ namespace _7DaysToTransfer
 {
     public partial class export : Form
     {
-        public GameSaveItem Save;
+        public WorldSaveItem Save;
         public string path;
         public int index;
         public export()
@@ -24,7 +24,7 @@ namespace _7DaysToTransfer
         private void export_Load(object sender, EventArgs e)
         {
             FromLabel.Text = "From: " + Save.World + "/" + Save.GameName;
-            listBox1.DataSource = Save.PlayerIDs;
+            listBox1.DataSource = Save.GetUserNames();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -32,7 +32,7 @@ namespace _7DaysToTransfer
             saveFileDialog1.AddExtension = true;
             saveFileDialog1.DefaultExt = ".ttp";
             saveFileDialog1.Filter = "7Days Character | .ttp";
-            saveFileDialog1.FileName = listBox1.SelectedItem.ToString() + ".ttp";
+            saveFileDialog1.FileName = Save.Players[listBox1.SelectedIndex].ID + ".ttp";
             saveFileDialog1.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
                 textBox1.Text = saveFileDialog1.FileName;

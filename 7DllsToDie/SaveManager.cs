@@ -7,18 +7,22 @@ using System.Threading.Tasks;
 
 namespace _7DllsToDie
 {
-    public class SaveManager
+    public static class SaveManager
     {
-        public static string SaveFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "/7DaysToDie";
+        private static byte[] NameBase = new byte[] { 0xFF, 0xFF, 0x00 };
+        private static int NameOffset = 15;
+        
+		public static string SaveFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "/7DaysToDie";
 
-        public static void PlatformUpdate(){
-			if (Environment.OSVersion.ToString().Contains("Unix"))
-				SaveFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Library/Application Support/7DaysToDie";
-
-		}
-        public static List<GameSaveItem> ScanSaves()
+        public static void PlatformUpdate()
         {
-            var GameSaves = new List<GameSaveItem>();
+            if (Environment.OSVersion.ToString().Contains("Unix"))
+                SaveFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Library/Application Support/7DaysToDie";
+
+        }
+        public static List<WorldSaveItem> ScanSaves()
+        {
+            var GameSaves = new List<WorldSaveItem>();
             string[] worlds = { "Navezgane", "Random Gen" };
             foreach (string world in worlds)
             {
@@ -26,14 +30,8 @@ namespace _7DllsToDie
 
                 foreach (string Dir in Dirs)
                 {
-                    var paths = Directory.GetFiles(Dir + "/Player/", "*.ttp");
-                    var IDs = new List<string>();
-                    foreach (string path in paths)
-                    {
-                        IDs.Add(Path.GetFileNameWithoutExtension(path));
-                    }
                     string gamename = new DirectoryInfo(Dir).Name;
-                    GameSaves.Add(new GameSaveItem(world, gamename, IDs.ToArray()));
+                    GameSaves.Add(new WorldSaveItem(world, gamename));
 
                 }
             }
@@ -68,24 +66,112 @@ namespace _7DllsToDie
         }
     }
     //%APPDATA%/7DaysToDie/Saves/[Random Gen/Navezgane]/[Game Name]/Player/[playerID.[map/ttp/ttp.bak]
-    public class GameSaveItem
+    public class WorldSaveItem
     {
-        private string world;
-        private string gameName;
-        private string[] playerIDs;
-        public GameSaveItem(string World, string GameName, string[] PlayerIDs)
+        public string World { get; }
+        public string GameName { get; }
+        public CharacterSave[] Players;
+        public WorldSaveItem(string World, string GameName)
         {
-            world = World;
-            gameName = GameName;
-            playerIDs = PlayerIDs;
+            this.World = World;
+            this.GameName = GameName;
+            Players = GetPlayers();
+        }
+        private CharacterSave[] GetPlayers()
+        {
+            var paths = Directory.GetFiles(SaveManager.SaveFolder + "/Saves/" + World + "/" + GameName + "/Player/", "*.ttp");
+            var IDs = new List<CharacterSave>();
+            foreach (string path in paths)
+            {
+                IDs.Add(new CharacterSave(path));
+            }
+            return IDs.ToArray();
+        }
+		public string[] GetUserNames()
+		{
+            var Names = new List<string>();
+			
+			foreach (var player in Players)
+			{
+				Names.Add(player.UserName);
+			}
+			return Names.ToArray();
+		}
+    }
+
+    public class CharacterSave : ListV
+    {
+		private static byte[] NameBase = new byte[] { 0xFF, 0xFF, 0x00 };
+		private static int NameOffset = 15;
+
+		public string ID { get; }
+        public string UserName { get; }
+        public string CharacterName { get; }
+        public string Path { get; }
+
+        public CharacterSave(string path)
+        {
+            Path = path;
+            ID = System.IO.Path.GetFileNameWithoutExtension(Path);
+            UserName = GetUserName();
+            CharacterName = GetCharacterProfile();
         }
 
-        public string World { get { return world; } }
-        public string GameName { get { return gameName; } }
-        public string[] PlayerIDs { get { return playerIDs; } }
-        public string GetPath(int PlayerIndex)
+		public string GetUserName()
+		{
+			var NameBaseAddr = SearchFile(Path, NameBase);
+			BinaryReader reader = new BinaryReader(new FileStream(Path, FileMode.Open, FileAccess.Read, FileShare.None));
+			reader.BaseStream.Position = NameBaseAddr + NameOffset;     // The offset you are reading the data from
+			byte bytes = reader.ReadBytes(0x1)[0]; // Bytes read into an array
+			reader.BaseStream.Position = NameBaseAddr + NameOffset + 1;
+			byte[] name = reader.ReadBytes(bytes);
+			reader.Close();
+			return System.Text.Encoding.Default.GetString(name);
+		}
+
+		private static int SearchFile(string path, byte[] search)
+		{
+			//Find the byte
+			BinaryReader br = new BinaryReader(File.OpenRead(path));
+			int v = 0;
+			int i = 0;
+			for (i = 0; i <= br.BaseStream.Length; i++)
+			{
+				if (br.BaseStream.ReadByte() == NameBase[v])
+				{
+					Console.WriteLine("Found byte index " + v + " at offset " + i);
+					v++;
+					if (v == NameBase.Length)
+					{
+						break;
+					}
+				}
+				else
+				{
+					v = 0;
+				}
+			}
+			br.Close();
+			return i;
+		}
+
+        private int GetUserLevel()
         {
-            return SaveManager.SaveFolder + "/Saves/" + world + "/" + gameName + "/Player/" + playerIDs[PlayerIndex] + ".ttp";
+            throw new NotImplementedException();
         }
+
+        private string GetCharacterProfile()
+        {
+            BinaryReader reader = new BinaryReader(new FileStream(Path, FileMode.Open, FileAccess.Read, FileShare.None));
+            reader.BaseStream.Position = 1420;     // name Start
+            byte nameBytes = reader.ReadBytes(0x1)[0];
+            reader.BaseStream.Position = 1420 + nameBytes + 7;     // Start + name length + offset
+            byte charBytes = reader.ReadBytes(0x1)[0];
+            reader.BaseStream.Position = 1420 + nameBytes + 8;
+            byte[] name = reader.ReadBytes(charBytes);
+            reader.Close();
+            return System.Text.Encoding.Default.GetString(name);
+        }
+
     }
 }

@@ -17,7 +17,7 @@ namespace _7DaysToTransfer
         {
             InitializeComponent();
         }
-        public GameSaveItem Save;
+        public WorldSaveItem Save;
         public int IdIndex;
         public string path;
         private void button1_Click(object sender, EventArgs e)
@@ -33,7 +33,7 @@ namespace _7DaysToTransfer
         private void Import_Load(object sender, EventArgs e)
         {
             ToLabel.Text = "To: " + Save.World + "/" + Save.GameName;
-            listBox1.DataSource = Save.PlayerIDs;
+            listBox1.DataSource = Save.GetUserNames();
         }
 
         private void ImportBtn_Click(object sender, EventArgs e)

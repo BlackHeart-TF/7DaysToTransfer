@@ -51,7 +51,7 @@
             this.button1.TabIndex = 0;
             this.button1.Text = "<< Copy";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button2_Click);
+            this.button1.Click += new System.EventHandler(this.Button2_Click);
             // 
             // listView2
             // 
@@ -67,7 +67,7 @@
             this.listView2.TabIndex = 1;
             this.listView2.UseCompatibleStateImageBehavior = false;
             this.listView2.View = System.Windows.Forms.View.Details;
-            this.listView2.SelectedIndexChanged += new System.EventHandler(this.listView_SelectedIndexChanged);
+            this.listView2.SelectedIndexChanged += new System.EventHandler(this.ListView_SelectedIndexChanged);
             // 
             // worldHeader
             // 
@@ -93,7 +93,7 @@
             this.listView1.TabIndex = 1;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
-            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView_SelectedIndexChanged);
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.ListView_SelectedIndexChanged);
             // 
             // columnHeader1
             // 
@@ -114,7 +114,7 @@
             this.button2.TabIndex = 0;
             this.button2.Text = "Copy >>";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button1_Click);
+            this.button2.Click += new System.EventHandler(this.Button1_Click);
             // 
             // ImportLeft
             // 

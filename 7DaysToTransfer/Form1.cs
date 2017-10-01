@@ -14,7 +14,7 @@ namespace _7DaysToTransfer
 {
     public partial class Form1 : Form
     {
-        public static List<GameSaveItem> Saves = new List<GameSaveItem>();
+        public static List<WorldSaveItem> Saves = new List<WorldSaveItem>();
         public Form1()
         {
             SaveManager.PlatformUpdate();
@@ -38,7 +38,7 @@ namespace _7DaysToTransfer
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             if (listView1.SelectedIndices.Count > 0 & listView2.SelectedIndices.Count > 0)
             {
@@ -47,7 +47,7 @@ namespace _7DaysToTransfer
                 SelectID(FromSave, ToSave);
             }
         }
-        private void button2_Click(object sender, EventArgs e)
+        private void Button2_Click(object sender, EventArgs e)
         {
             if (listView1.SelectedIndices.Count > 0 & listView2.SelectedIndices.Count > 0)
             {
@@ -57,16 +57,18 @@ namespace _7DaysToTransfer
             }
         }
 
-        private void SelectID(GameSaveItem FromSave, GameSaveItem ToSave)
+        private void SelectID(WorldSaveItem FromSave, WorldSaveItem ToSave)
         {
-            var form = new Id_Select();
-            form.FromSave = FromSave;
-            form.ToSave = ToSave;
+            var form = new Id_Select()
+            {
+                FromSave = FromSave,
+                ToSave = ToSave
+            };
             if (form.ShowDialog() == DialogResult.OK)
                 SaveManager.CopySave(form.fromPath, form.toPath);
         }
 
-        private void listView_SelectedIndexChanged(object sender, EventArgs e)
+        private void ListView_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (listView1.SelectedIndices.Count > 0 & listView2.SelectedIndices.Count > 0)
             {
@@ -87,28 +89,32 @@ namespace _7DaysToTransfer
         private void Import_Click(object sender, EventArgs e)
         {
             var Sender = (Button)sender;
-            GameSaveItem Save;
+            WorldSaveItem Save;
             if (Sender.Name == "ImportLeft")
                 Save = Saves[listView1.SelectedIndices[0]];
             else
                 Save = Saves[listView2.SelectedIndices[0]];
-            var importForm = new Import();
-            importForm.Save = Save;
+            var importForm = new Import()
+            {
+                Save = Save
+            };
             if (importForm.ShowDialog() == DialogResult.OK) 
-                SaveManager.ImportSave(importForm.path, Save.GetPath(importForm.IdIndex));
+                SaveManager.ImportSave(importForm.path, Save.Players[importForm.IdIndex].Path);
         }
         private void Export_Click(object sender, EventArgs e)
         {
             var Sender = (Button)sender;
-            GameSaveItem Save;
+            WorldSaveItem Save;
             if (Sender.Name == "ExportLeft")
                 Save = Saves[listView1.SelectedIndices[0]];
             else
                 Save = Saves[listView2.SelectedIndices[0]];
-            var exportForm = new export();
-            exportForm.Save = Save;
+            var exportForm = new export()
+            {
+                Save = Save
+            };
             if (exportForm.ShowDialog() == DialogResult.OK)
-                SaveManager.ExportSave(Save.GetPath(exportForm.index),exportForm.path);
+                SaveManager.ExportSave(Save.Players[exportForm.index].Path,exportForm.path);
         }
     }
 }
