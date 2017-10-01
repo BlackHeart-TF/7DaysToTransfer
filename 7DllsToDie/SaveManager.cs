@@ -9,8 +9,7 @@ namespace _7DllsToDie
 {
     public static class SaveManager
     {
-        private static byte[] NameBase = new byte[] { 0xFF, 0xFF, 0x00 };
-        private static int NameOffset = 15;
+        
         
 		public static string SaveFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "/7DaysToDie";
 
@@ -99,10 +98,11 @@ namespace _7DllsToDie
 		}
     }
 
-    public class CharacterSave : ListV
+    public class CharacterSave
     {
 		private static byte[] NameBase = new byte[] { 0xFF, 0xFF, 0x00 };
 		private static int NameOffset = 15;
+        private static int CharacterOffset = 6;
 
 		public string ID { get; }
         public string UserName { get; }
@@ -113,7 +113,7 @@ namespace _7DllsToDie
         {
             Path = path;
             ID = System.IO.Path.GetFileNameWithoutExtension(Path);
-            UserName = GetUserName();
+            UserName = GetCharacterProfile(); //GetUserName();
             CharacterName = GetCharacterProfile();
         }
 
@@ -123,8 +123,20 @@ namespace _7DllsToDie
 			BinaryReader reader = new BinaryReader(new FileStream(Path, FileMode.Open, FileAccess.Read, FileShare.None));
 			reader.BaseStream.Position = NameBaseAddr + NameOffset;     // The offset you are reading the data from
 			byte bytes = reader.ReadBytes(0x1)[0]; // Bytes read into an array
-			reader.BaseStream.Position = NameBaseAddr + NameOffset + 1;
 			byte[] name = reader.ReadBytes(bytes);
+			reader.Close();
+			return System.Text.Encoding.Default.GetString(name);
+		}
+
+		private string GetCharacterProfile()
+		{
+			var NameBaseAddr = SearchFile(Path, NameBase);
+			BinaryReader reader = new BinaryReader(new FileStream(Path, FileMode.Open, FileAccess.Read, FileShare.None));
+			reader.BaseStream.Position = NameBaseAddr + NameOffset;     // name Start
+			byte nameBytes = reader.ReadBytes(0x1)[0];
+            reader.BaseStream.Position += nameBytes + CharacterOffset;     // Start + name length + offset
+			byte charBytes = reader.ReadBytes(0x1)[0];
+			byte[] name = reader.ReadBytes(charBytes);
 			reader.Close();
 			return System.Text.Encoding.Default.GetString(name);
 		}
@@ -160,18 +172,7 @@ namespace _7DllsToDie
             throw new NotImplementedException();
         }
 
-        private string GetCharacterProfile()
-        {
-            BinaryReader reader = new BinaryReader(new FileStream(Path, FileMode.Open, FileAccess.Read, FileShare.None));
-            reader.BaseStream.Position = 1420;     // name Start
-            byte nameBytes = reader.ReadBytes(0x1)[0];
-            reader.BaseStream.Position = 1420 + nameBytes + 7;     // Start + name length + offset
-            byte charBytes = reader.ReadBytes(0x1)[0];
-            reader.BaseStream.Position = 1420 + nameBytes + 8;
-            byte[] name = reader.ReadBytes(charBytes);
-            reader.Close();
-            return System.Text.Encoding.Default.GetString(name);
-        }
+
 
     }
 }
