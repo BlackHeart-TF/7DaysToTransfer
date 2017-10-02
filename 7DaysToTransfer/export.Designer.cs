@@ -31,22 +31,22 @@
             this.components = new System.ComponentModel.Container();
             this.FromLabel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.exporttextBox = new System.Windows.Forms.TextBox();
+            this.BrowseBtn = new System.Windows.Forms.Button();
             this.ExportBtn = new System.Windows.Forms.Button();
             this.CancelBtn = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.userNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.characterNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.characterSaveBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.characterSaveBindingSource)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.characterSaveBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // FromLabel
@@ -68,25 +68,25 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "To:";
             // 
-            // textBox1
+            // exporttextBox
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBox1.Location = new System.Drawing.Point(21, 43);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(284, 31);
-            this.textBox1.TabIndex = 4;
-            this.textBox1.TextChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            this.exporttextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.exporttextBox.Location = new System.Drawing.Point(21, 43);
+            this.exporttextBox.Name = "exporttextBox";
+            this.exporttextBox.Size = new System.Drawing.Size(404, 31);
+            this.exporttextBox.TabIndex = 4;
+            this.exporttextBox.TextChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
-            // button1
+            // BrowseBtn
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button1.Location = new System.Drawing.Point(312, 43);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(101, 35);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Browse";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.BrowseBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.BrowseBtn.Location = new System.Drawing.Point(447, 43);
+            this.BrowseBtn.Name = "BrowseBtn";
+            this.BrowseBtn.Size = new System.Drawing.Size(101, 35);
+            this.BrowseBtn.TabIndex = 5;
+            this.BrowseBtn.Text = "Browse";
+            this.BrowseBtn.UseVisualStyleBackColor = true;
+            this.BrowseBtn.Click += new System.EventHandler(this.browse_Click);
             // 
             // ExportBtn
             // 
@@ -136,28 +136,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(791, 347);
             this.dataGridView1.TabIndex = 7;
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.ExportBtn);
-            this.panel1.Controls.Add(this.CancelBtn);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 409);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(815, 96);
-            this.panel1.TabIndex = 8;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.FromLabel);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(815, 50);
-            this.panel2.TabIndex = 9;
-            // 
             // userNameDataGridViewTextBoxColumn
             // 
             this.userNameDataGridViewTextBoxColumn.DataPropertyName = "UserName";
@@ -185,6 +163,28 @@
             // 
             this.characterSaveBindingSource.DataSource = typeof(_7DllsToDie.CharacterSave);
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.ExportBtn);
+            this.panel1.Controls.Add(this.CancelBtn);
+            this.panel1.Controls.Add(this.BrowseBtn);
+            this.panel1.Controls.Add(this.exporttextBox);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 409);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(815, 96);
+            this.panel1.TabIndex = 8;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.FromLabel);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(815, 50);
+            this.panel2.TabIndex = 9;
+            // 
             // export
             // 
             this.AcceptButton = this.ExportBtn;
@@ -199,11 +199,11 @@
             this.Text = "Export";
             this.Load += new System.EventHandler(this.export_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.characterSaveBindingSource)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.characterSaveBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -212,8 +212,8 @@
 
         private System.Windows.Forms.Label FromLabel;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox exporttextBox;
+        private System.Windows.Forms.Button BrowseBtn;
         private System.Windows.Forms.Button ExportBtn;
         private System.Windows.Forms.Button CancelBtn;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;

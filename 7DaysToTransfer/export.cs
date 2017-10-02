@@ -28,7 +28,7 @@ namespace _7DaysToTransfer
                 characterSaveBindingSource.Add(player);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void browse_Click(object sender, EventArgs e)
         {
             saveFileDialog1.AddExtension = true;
             saveFileDialog1.DefaultExt = ".ttp";
@@ -37,19 +37,19 @@ namespace _7DaysToTransfer
             saveFileDialog1.FileName = save.ID + ".ttp";
             saveFileDialog1.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
-                textBox1.Text = saveFileDialog1.FileName;
+                exporttextBox.Text = saveFileDialog1.FileName;
         }
 
         private void ExportBtn_Click(object sender, EventArgs e)
         {
-            path = textBox1.Text;
+            path = exporttextBox.Text;
             index = (CharacterSave)dataGridView1.CurrentRow.DataBoundItem;
             this.DialogResult = DialogResult.OK;
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ExportBtn.Enabled = (dataGridView1.SelectedRows.Count > 0 & textBox1.Text != "");
+            ExportBtn.Enabled = (dataGridView1.SelectedRows.Count > 0 & exporttextBox.Text != "");
         }
 
         private void CancelBtn_Click(object sender, EventArgs e)

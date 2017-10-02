@@ -20,7 +20,7 @@ namespace _7DaysToTransfer
         public WorldSaveItem Save;
         public CharacterSave ImportTo;
         public string path;
-        private void button1_Click(object sender, EventArgs e)
+        private void browse_Click(object sender, EventArgs e)
         {
             var selected = (CharacterSave)dataGridView1.CurrentRow.DataBoundItem;
             openFileDialog1.AddExtension = true;
@@ -32,7 +32,7 @@ namespace _7DaysToTransfer
             openFileDialog1.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             openFileDialog1.Filter = "7Days Character | *.ttp";
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
-                textBox1.Text = openFileDialog1.FileName;
+                InputPathtextBox.Text = openFileDialog1.FileName;
         }
 
         private void Import_Load(object sender, EventArgs e)
@@ -45,13 +45,13 @@ namespace _7DaysToTransfer
         private void ImportBtn_Click(object sender, EventArgs e)
         {
             ImportTo = (CharacterSave)dataGridView1.CurrentRow.DataBoundItem;
-            path = textBox1.Text;
+            path = InputPathtextBox.Text;
             this.DialogResult = DialogResult.OK;
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ImportBtn.Enabled = (dataGridView1.SelectedRows.Count > 0 & textBox1.Text != "");
+            ImportBtn.Enabled = (dataGridView1.SelectedRows.Count > 0 & InputPathtextBox.Text != "");
         }
     }
 }

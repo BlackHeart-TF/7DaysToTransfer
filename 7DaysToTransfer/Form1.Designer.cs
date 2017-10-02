@@ -1,6 +1,6 @@
 ﻿namespace _7DaysToTransfer
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.listView2 = new System.Windows.Forms.ListView();
+            this.copyLeft = new System.Windows.Forms.Button();
+            this.RightlistView = new System.Windows.Forms.ListView();
             this.worldHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.nameHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.LeftlistView = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.button2 = new System.Windows.Forms.Button();
+            this.copyRight = new System.Windows.Forms.Button();
             this.ImportLeft = new System.Windows.Forms.Button();
             this.ImportRight = new System.Windows.Forms.Button();
             this.ExportLeft = new System.Windows.Forms.Button();
@@ -50,36 +50,36 @@
             this.bottomPanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button1
+            // copyLeft
             // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.button1.Enabled = false;
-            this.button1.Location = new System.Drawing.Point(518, 15);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(138, 37);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "<< Copy";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Button2_Click);
+            this.copyLeft.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.copyLeft.Enabled = false;
+            this.copyLeft.Location = new System.Drawing.Point(518, 15);
+            this.copyLeft.Name = "copyLeft";
+            this.copyLeft.Size = new System.Drawing.Size(138, 37);
+            this.copyLeft.TabIndex = 0;
+            this.copyLeft.Text = "<< Copy";
+            this.copyLeft.UseVisualStyleBackColor = true;
+            this.copyLeft.Click += new System.EventHandler(this.copyLeft_Click);
             // 
-            // listView2
+            // RightlistView
             // 
-            this.listView2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.RightlistView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.RightlistView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.worldHeader,
             this.nameHeader});
-            this.listView2.FullRowSelect = true;
-            this.listView2.HideSelection = false;
-            this.listView2.Location = new System.Drawing.Point(3, 12);
-            this.listView2.MultiSelect = false;
-            this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(497, 480);
-            this.listView2.TabIndex = 1;
-            this.listView2.UseCompatibleStateImageBehavior = false;
-            this.listView2.View = System.Windows.Forms.View.Details;
-            this.listView2.SelectedIndexChanged += new System.EventHandler(this.ListView_SelectedIndexChanged);
+            this.RightlistView.FullRowSelect = true;
+            this.RightlistView.HideSelection = false;
+            this.RightlistView.Location = new System.Drawing.Point(3, 12);
+            this.RightlistView.MultiSelect = false;
+            this.RightlistView.Name = "RightlistView";
+            this.RightlistView.Size = new System.Drawing.Size(497, 480);
+            this.RightlistView.TabIndex = 1;
+            this.RightlistView.UseCompatibleStateImageBehavior = false;
+            this.RightlistView.View = System.Windows.Forms.View.Details;
+            this.RightlistView.SelectedIndexChanged += new System.EventHandler(this.ListView_SelectedIndexChanged);
             // 
             // worldHeader
             // 
@@ -91,24 +91,24 @@
             this.nameHeader.Text = "Game Name";
             this.nameHeader.Width = 146;
             // 
-            // listView1
+            // LeftlistView
             // 
-            this.listView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.LeftlistView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.LeftlistView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2});
-            this.listView1.FullRowSelect = true;
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(12, 12);
-            this.listView1.MultiSelect = false;
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(504, 480);
-            this.listView1.TabIndex = 1;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
-            this.listView1.SelectedIndexChanged += new System.EventHandler(this.ListView_SelectedIndexChanged);
+            this.LeftlistView.FullRowSelect = true;
+            this.LeftlistView.HideSelection = false;
+            this.LeftlistView.Location = new System.Drawing.Point(12, 12);
+            this.LeftlistView.MultiSelect = false;
+            this.LeftlistView.Name = "LeftlistView";
+            this.LeftlistView.Size = new System.Drawing.Size(504, 480);
+            this.LeftlistView.TabIndex = 1;
+            this.LeftlistView.UseCompatibleStateImageBehavior = false;
+            this.LeftlistView.View = System.Windows.Forms.View.Details;
+            this.LeftlistView.SelectedIndexChanged += new System.EventHandler(this.ListView_SelectedIndexChanged);
             // 
             // columnHeader1
             // 
@@ -120,17 +120,17 @@
             this.columnHeader2.Text = "Game Name";
             this.columnHeader2.Width = 146;
             // 
-            // button2
+            // copyRight
             // 
-            this.button2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.button2.Enabled = false;
-            this.button2.Location = new System.Drawing.Point(374, 15);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(138, 37);
-            this.button2.TabIndex = 0;
-            this.button2.Text = "Copy >>";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.Button1_Click);
+            this.copyRight.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.copyRight.Enabled = false;
+            this.copyRight.Location = new System.Drawing.Point(374, 15);
+            this.copyRight.Name = "copyRight";
+            this.copyRight.Size = new System.Drawing.Size(138, 37);
+            this.copyRight.TabIndex = 0;
+            this.copyRight.Text = "Copy >>";
+            this.copyRight.UseVisualStyleBackColor = true;
+            this.copyRight.Click += new System.EventHandler(this.copyRight_Click);
             // 
             // ImportLeft
             // 
@@ -195,7 +195,7 @@
             // 
             // rightPanel
             // 
-            this.rightPanel.Controls.Add(this.listView2);
+            this.rightPanel.Controls.Add(this.RightlistView);
             this.rightPanel.Dock = System.Windows.Forms.DockStyle.Right;
             this.rightPanel.Location = new System.Drawing.Point(519, 0);
             this.rightPanel.Name = "rightPanel";
@@ -204,7 +204,7 @@
             // 
             // LeftPanel
             // 
-            this.LeftPanel.Controls.Add(this.listView1);
+            this.LeftPanel.Controls.Add(this.LeftlistView);
             this.LeftPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.LeftPanel.Location = new System.Drawing.Point(0, 0);
             this.LeftPanel.Name = "LeftPanel";
@@ -213,8 +213,8 @@
             // 
             // bottomPanel
             // 
-            this.bottomPanel.Controls.Add(this.button2);
-            this.bottomPanel.Controls.Add(this.button1);
+            this.bottomPanel.Controls.Add(this.copyRight);
+            this.bottomPanel.Controls.Add(this.copyLeft);
             this.bottomPanel.Controls.Add(this.ExportRight);
             this.bottomPanel.Controls.Add(this.ImportLeft);
             this.bottomPanel.Controls.Add(this.ImportRight);
@@ -225,7 +225,7 @@
             this.bottomPanel.Size = new System.Drawing.Size(1031, 106);
             this.bottomPanel.TabIndex = 3;
             // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -233,7 +233,7 @@
             this.Controls.Add(this.bottomPanel);
             this.Controls.Add(this.mainPanel);
             this.MinimumSize = new System.Drawing.Size(1057, 675);
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.Text = "7 Days To Transfer";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.mainPanel.ResumeLayout(false);
@@ -247,14 +247,14 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ListView listView2;
+        private System.Windows.Forms.Button copyLeft;
+        private System.Windows.Forms.ListView RightlistView;
         private System.Windows.Forms.ColumnHeader worldHeader;
         private System.Windows.Forms.ColumnHeader nameHeader;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView LeftlistView;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button copyRight;
         private System.Windows.Forms.Button ImportLeft;
         private System.Windows.Forms.Button ImportRight;
         private System.Windows.Forms.Button ExportLeft;

@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.InputPathtextBox = new System.Windows.Forms.TextBox();
             this.ToLabel = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.BrowseBtn = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.ImportBtn = new System.Windows.Forms.Button();
             this.CancelBtn = new System.Windows.Forms.Button();
@@ -58,15 +58,15 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Importing:";
             // 
-            // textBox1
+            // InputPathtextBox
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.InputPathtextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(13, 41);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(544, 31);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.TextChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            this.InputPathtextBox.Location = new System.Drawing.Point(13, 41);
+            this.InputPathtextBox.Name = "InputPathtextBox";
+            this.InputPathtextBox.Size = new System.Drawing.Size(544, 31);
+            this.InputPathtextBox.TabIndex = 1;
+            this.InputPathtextBox.TextChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // ToLabel
             // 
@@ -77,16 +77,16 @@
             this.ToLabel.TabIndex = 2;
             this.ToLabel.Text = "To:";
             // 
-            // button1
+            // BrowseBtn
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(571, 41);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(103, 38);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Browse";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.BrowseBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BrowseBtn.Location = new System.Drawing.Point(571, 41);
+            this.BrowseBtn.Name = "BrowseBtn";
+            this.BrowseBtn.Size = new System.Drawing.Size(103, 38);
+            this.BrowseBtn.TabIndex = 4;
+            this.BrowseBtn.Text = "Browse";
+            this.BrowseBtn.UseVisualStyleBackColor = true;
+            this.BrowseBtn.Click += new System.EventHandler(this.browse_Click);
             // 
             // ImportBtn
             // 
@@ -123,8 +123,8 @@
             // panel2
             // 
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.textBox1);
-            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.InputPathtextBox);
+            this.panel2.Controls.Add(this.BrowseBtn);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
@@ -208,9 +208,9 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox InputPathtextBox;
         private System.Windows.Forms.Label ToLabel;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button BrowseBtn;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Button ImportBtn;
         private System.Windows.Forms.Button CancelBtn;

@@ -12,10 +12,10 @@ using _7DllsToDie;
 
 namespace _7DaysToTransfer
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         public static List<WorldSaveItem> Saves = new List<WorldSaveItem>();
-        public Form1()
+        public MainForm()
         {
             SaveManager.PlatformUpdate();
             InitializeComponent();
@@ -33,26 +33,26 @@ namespace _7DaysToTransfer
             Saves = SaveManager.ScanSaves();
             foreach (var save in Saves)
             {
-                listView1.Items.Add(save.World).SubItems.Add(save.GameName);
-                listView2.Items.Add(save.World).SubItems.Add(save.GameName);
+                LeftlistView.Items.Add(save.World).SubItems.Add(save.GameName);
+                RightlistView.Items.Add(save.World).SubItems.Add(save.GameName);
             }
         }
 
-        private void Button1_Click(object sender, EventArgs e)
+        private void copyRight_Click(object sender, EventArgs e)
         {
-            if (listView1.SelectedIndices.Count > 0 & listView2.SelectedIndices.Count > 0)
+            if (LeftlistView.SelectedIndices.Count > 0 & RightlistView.SelectedIndices.Count > 0)
             {
-                var FromSave = Saves[listView1.SelectedIndices[0]];
-                var ToSave = Saves[listView2.SelectedIndices[0]];
+                var FromSave = Saves[LeftlistView.SelectedIndices[0]];
+                var ToSave = Saves[RightlistView.SelectedIndices[0]];
                 SelectID(FromSave, ToSave);
             }
         }
-        private void Button2_Click(object sender, EventArgs e)
+        private void copyLeft_Click(object sender, EventArgs e)
         {
-            if (listView1.SelectedIndices.Count > 0 & listView2.SelectedIndices.Count > 0)
+            if (LeftlistView.SelectedIndices.Count > 0 & RightlistView.SelectedIndices.Count > 0)
             {
-                var FromSave = Saves[listView2.SelectedIndices[0]];
-                var ToSave = Saves[listView1.SelectedIndices[0]];
+                var FromSave = Saves[RightlistView.SelectedIndices[0]];
+                var ToSave = Saves[LeftlistView.SelectedIndices[0]];
                 SelectID(FromSave, ToSave);
             }
         }
@@ -70,19 +70,19 @@ namespace _7DaysToTransfer
 
         private void ListView_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (listView1.SelectedIndices.Count > 0 & listView2.SelectedIndices.Count > 0)
+            if (LeftlistView.SelectedIndices.Count > 0 & RightlistView.SelectedIndices.Count > 0)
             {
-                button1.Enabled = true;
-                button2.Enabled = true;
+                copyLeft.Enabled = true;
+                copyRight.Enabled = true;
             }
             else
             {
-                button1.Enabled = false;
-                button2.Enabled = false;
+                copyLeft.Enabled = false;
+                copyRight.Enabled = false;
             }
 
-                ImportLeft.Enabled = ExportLeft.Enabled = (listView1.SelectedIndices.Count > 0);
-            ImportRight.Enabled = ExportRight.Enabled = (listView2.SelectedIndices.Count > 0);
+                ImportLeft.Enabled = ExportLeft.Enabled = (LeftlistView.SelectedIndices.Count > 0);
+            ImportRight.Enabled = ExportRight.Enabled = (RightlistView.SelectedIndices.Count > 0);
 
         }
 
@@ -91,9 +91,9 @@ namespace _7DaysToTransfer
             var Sender = (Button)sender;
             WorldSaveItem Save;
             if (Sender.Name == "ImportLeft")
-                Save = Saves[listView1.SelectedIndices[0]];
+                Save = Saves[LeftlistView.SelectedIndices[0]];
             else
-                Save = Saves[listView2.SelectedIndices[0]];
+                Save = Saves[RightlistView.SelectedIndices[0]];
             var importForm = new Import()
             {
                 Save = Save
@@ -106,9 +106,9 @@ namespace _7DaysToTransfer
             var Sender = (Button)sender;
             WorldSaveItem Save;
             if (Sender.Name == "ExportLeft")
-                Save = Saves[listView1.SelectedIndices[0]];
+                Save = Saves[LeftlistView.SelectedIndices[0]];
             else
-                Save = Saves[listView2.SelectedIndices[0]];
+                Save = Saves[RightlistView.SelectedIndices[0]];
             var exportForm = new export()
             {
                 Save = Save
