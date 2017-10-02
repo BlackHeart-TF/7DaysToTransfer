@@ -99,7 +99,7 @@ namespace _7DaysToTransfer
                 Save = Save
             };
             if (importForm.ShowDialog() == DialogResult.OK) 
-                SaveManager.ImportSave(importForm.path, Save.Players[importForm.IdIndex].Path);
+                SaveManager.ImportSave(importForm.path, importForm.ImportTo.Path);
         }
         private void Export_Click(object sender, EventArgs e)
         {
@@ -114,7 +114,12 @@ namespace _7DaysToTransfer
                 Save = Save
             };
             if (exportForm.ShowDialog() == DialogResult.OK)
-                SaveManager.ExportSave(Save.Players[exportForm.index].Path,exportForm.path);
+                SaveManager.ExportSave(exportForm.index.Path,exportForm.path);
+        }
+
+        private void mainPanel_Layout(object sender, LayoutEventArgs e)
+        {
+            rightPanel.Width = mainPanel.Width / 2;
         }
     }
 }

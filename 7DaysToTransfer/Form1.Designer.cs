@@ -40,12 +40,21 @@
             this.ImportRight = new System.Windows.Forms.Button();
             this.ExportLeft = new System.Windows.Forms.Button();
             this.ExportRight = new System.Windows.Forms.Button();
+            this.mainPanel = new System.Windows.Forms.Panel();
+            this.rightPanel = new System.Windows.Forms.Panel();
+            this.LeftPanel = new System.Windows.Forms.Panel();
+            this.bottomPanel = new System.Windows.Forms.Panel();
+            this.mainPanel.SuspendLayout();
+            this.rightPanel.SuspendLayout();
+            this.LeftPanel.SuspendLayout();
+            this.bottomPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
             // 
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.button1.Enabled = false;
-            this.button1.Location = new System.Drawing.Point(519, 513);
+            this.button1.Location = new System.Drawing.Point(518, 15);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(138, 37);
             this.button1.TabIndex = 0;
@@ -55,15 +64,18 @@
             // 
             // listView2
             // 
+            this.listView2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.worldHeader,
             this.nameHeader});
             this.listView2.FullRowSelect = true;
             this.listView2.HideSelection = false;
-            this.listView2.Location = new System.Drawing.Point(519, 12);
+            this.listView2.Location = new System.Drawing.Point(3, 12);
             this.listView2.MultiSelect = false;
             this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(501, 495);
+            this.listView2.Size = new System.Drawing.Size(497, 480);
             this.listView2.TabIndex = 1;
             this.listView2.UseCompatibleStateImageBehavior = false;
             this.listView2.View = System.Windows.Forms.View.Details;
@@ -72,7 +84,7 @@
             // worldHeader
             // 
             this.worldHeader.Text = "World";
-            this.worldHeader.Width = 124;
+            this.worldHeader.Width = 100;
             // 
             // nameHeader
             // 
@@ -81,6 +93,9 @@
             // 
             // listView1
             // 
+            this.listView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2});
@@ -89,7 +104,7 @@
             this.listView1.Location = new System.Drawing.Point(12, 12);
             this.listView1.MultiSelect = false;
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(501, 495);
+            this.listView1.Size = new System.Drawing.Size(504, 480);
             this.listView1.TabIndex = 1;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -98,7 +113,7 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "World";
-            this.columnHeader1.Width = 124;
+            this.columnHeader1.Width = 100;
             // 
             // columnHeader2
             // 
@@ -107,8 +122,9 @@
             // 
             // button2
             // 
+            this.button2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.button2.Enabled = false;
-            this.button2.Location = new System.Drawing.Point(375, 513);
+            this.button2.Location = new System.Drawing.Point(374, 15);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(138, 37);
             this.button2.TabIndex = 0;
@@ -118,8 +134,9 @@
             // 
             // ImportLeft
             // 
+            this.ImportLeft.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.ImportLeft.Enabled = false;
-            this.ImportLeft.Location = new System.Drawing.Point(12, 513);
+            this.ImportLeft.Location = new System.Drawing.Point(12, 15);
             this.ImportLeft.Name = "ImportLeft";
             this.ImportLeft.Size = new System.Drawing.Size(138, 37);
             this.ImportLeft.TabIndex = 0;
@@ -129,8 +146,9 @@
             // 
             // ImportRight
             // 
+            this.ImportRight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.ImportRight.Enabled = false;
-            this.ImportRight.Location = new System.Drawing.Point(882, 513);
+            this.ImportRight.Location = new System.Drawing.Point(879, 15);
             this.ImportRight.Name = "ImportRight";
             this.ImportRight.Size = new System.Drawing.Size(138, 37);
             this.ImportRight.TabIndex = 0;
@@ -140,8 +158,9 @@
             // 
             // ExportLeft
             // 
+            this.ExportLeft.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.ExportLeft.Enabled = false;
-            this.ExportLeft.Location = new System.Drawing.Point(12, 556);
+            this.ExportLeft.Location = new System.Drawing.Point(12, 58);
             this.ExportLeft.Name = "ExportLeft";
             this.ExportLeft.Size = new System.Drawing.Size(138, 37);
             this.ExportLeft.TabIndex = 0;
@@ -151,8 +170,9 @@
             // 
             // ExportRight
             // 
+            this.ExportRight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.ExportRight.Enabled = false;
-            this.ExportRight.Location = new System.Drawing.Point(882, 556);
+            this.ExportRight.Location = new System.Drawing.Point(879, 58);
             this.ExportRight.Name = "ExportRight";
             this.ExportRight.Size = new System.Drawing.Size(138, 37);
             this.ExportRight.TabIndex = 0;
@@ -160,23 +180,68 @@
             this.ExportRight.UseVisualStyleBackColor = true;
             this.ExportRight.Click += new System.EventHandler(this.Export_Click);
             // 
+            // mainPanel
+            // 
+            this.mainPanel.AutoSize = true;
+            this.mainPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.mainPanel.Controls.Add(this.rightPanel);
+            this.mainPanel.Controls.Add(this.LeftPanel);
+            this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mainPanel.Location = new System.Drawing.Point(0, 0);
+            this.mainPanel.Name = "mainPanel";
+            this.mainPanel.Size = new System.Drawing.Size(1031, 604);
+            this.mainPanel.TabIndex = 2;
+            this.mainPanel.Layout += new System.Windows.Forms.LayoutEventHandler(this.mainPanel_Layout);
+            // 
+            // rightPanel
+            // 
+            this.rightPanel.Controls.Add(this.listView2);
+            this.rightPanel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.rightPanel.Location = new System.Drawing.Point(519, 0);
+            this.rightPanel.Name = "rightPanel";
+            this.rightPanel.Size = new System.Drawing.Size(512, 604);
+            this.rightPanel.TabIndex = 3;
+            // 
+            // LeftPanel
+            // 
+            this.LeftPanel.Controls.Add(this.listView1);
+            this.LeftPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LeftPanel.Location = new System.Drawing.Point(0, 0);
+            this.LeftPanel.Name = "LeftPanel";
+            this.LeftPanel.Size = new System.Drawing.Size(1031, 604);
+            this.LeftPanel.TabIndex = 2;
+            // 
+            // bottomPanel
+            // 
+            this.bottomPanel.Controls.Add(this.button2);
+            this.bottomPanel.Controls.Add(this.button1);
+            this.bottomPanel.Controls.Add(this.ExportRight);
+            this.bottomPanel.Controls.Add(this.ImportLeft);
+            this.bottomPanel.Controls.Add(this.ImportRight);
+            this.bottomPanel.Controls.Add(this.ExportLeft);
+            this.bottomPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.bottomPanel.Location = new System.Drawing.Point(0, 498);
+            this.bottomPanel.Name = "bottomPanel";
+            this.bottomPanel.Size = new System.Drawing.Size(1031, 106);
+            this.bottomPanel.TabIndex = 3;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1031, 608);
-            this.Controls.Add(this.listView1);
-            this.Controls.Add(this.listView2);
-            this.Controls.Add(this.ExportRight);
-            this.Controls.Add(this.ImportRight);
-            this.Controls.Add(this.ExportLeft);
-            this.Controls.Add(this.ImportLeft);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(1031, 604);
+            this.Controls.Add(this.bottomPanel);
+            this.Controls.Add(this.mainPanel);
+            this.MinimumSize = new System.Drawing.Size(1057, 675);
             this.Name = "Form1";
             this.Text = "7 Days To Transfer";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.mainPanel.ResumeLayout(false);
+            this.rightPanel.ResumeLayout(false);
+            this.LeftPanel.ResumeLayout(false);
+            this.bottomPanel.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -194,6 +259,10 @@
         private System.Windows.Forms.Button ImportRight;
         private System.Windows.Forms.Button ExportLeft;
         private System.Windows.Forms.Button ExportRight;
+        private System.Windows.Forms.Panel mainPanel;
+        private System.Windows.Forms.Panel bottomPanel;
+        private System.Windows.Forms.Panel rightPanel;
+        private System.Windows.Forms.Panel LeftPanel;
     }
 }
 

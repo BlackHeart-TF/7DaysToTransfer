@@ -7,4 +7,3 @@ C:\Users\Noire\Documents\Visual Studio 2015\Projects\7DaysToTransfer\7DllsToDie\
 C:\Users\Noire\Documents\Visual Studio 2015\Projects\7DaysToTransfer\7DllsToDie\bin\Debug\7DllsToDie.pdb
 C:\Users\Noire\Documents\Visual Studio 2015\Projects\7DaysToTransfer\7DllsToDie\obj\Debug\7DllsToDie.dll
 C:\Users\Noire\Documents\Visual Studio 2015\Projects\7DaysToTransfer\7DllsToDie\obj\Debug\7DllsToDie.pdb
-C:\Users\Noire\Documents\Visual Studio 2015\Projects\7DaysToTransfer\7DllsToDie\obj\Debug\7DllsToDie.csprojResolveAssemblyReference.cache

@@ -61,6 +61,8 @@ namespace _7DllsToDie
 
         public static void ExportSave(string Source, string Destination)
         {
+            if (File.Exists(Destination))
+                File.Delete(Destination);
             File.Copy(Source, Destination);
         }
     }

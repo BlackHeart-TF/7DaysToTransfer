@@ -15,7 +15,7 @@ namespace _7DaysToTransfer
     {
         public WorldSaveItem Save;
         public string path;
-        public int index;
+        public CharacterSave index;
         public export()
         {
             InitializeComponent();
@@ -24,7 +24,8 @@ namespace _7DaysToTransfer
         private void export_Load(object sender, EventArgs e)
         {
             FromLabel.Text = "From: " + Save.World + "/" + Save.GameName;
-            listBox1.DataSource = Save.GetUserNames();
+            foreach (var player in Save.Players)
+                characterSaveBindingSource.Add(player);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -32,7 +33,8 @@ namespace _7DaysToTransfer
             saveFileDialog1.AddExtension = true;
             saveFileDialog1.DefaultExt = ".ttp";
             saveFileDialog1.Filter = "7Days Character | .ttp";
-            saveFileDialog1.FileName = Save.Players[listBox1.SelectedIndex].ID + ".ttp";
+            var save = (CharacterSave)dataGridView1.CurrentRow.DataBoundItem;
+            saveFileDialog1.FileName = save.ID + ".ttp";
             saveFileDialog1.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
                 textBox1.Text = saveFileDialog1.FileName;
@@ -41,13 +43,18 @@ namespace _7DaysToTransfer
         private void ExportBtn_Click(object sender, EventArgs e)
         {
             path = textBox1.Text;
-            index = listBox1.SelectedIndex;
+            index = (CharacterSave)dataGridView1.CurrentRow.DataBoundItem;
             this.DialogResult = DialogResult.OK;
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ExportBtn.Enabled = (listBox1.SelectedIndices.Count > 0 & textBox1.Text != "");
+            ExportBtn.Enabled = (dataGridView1.SelectedRows.Count > 0 & textBox1.Text != "");
+        }
+
+        private void CancelBtn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
